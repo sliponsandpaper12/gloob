@@ -1,17 +1,20 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <CreateLocation/>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import CreateLocation from './components/CreateLocation.vue';
 
- {
+
+export default {
   components: {
-    HelloWorld
-  }
-}
+    CreateLocation,
+  },
+};
 </script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore-compat.js"></script>
 
 <style>
 #app {

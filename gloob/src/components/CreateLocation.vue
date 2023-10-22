@@ -52,7 +52,7 @@
   
   <script setup>
   import projectFirestore from '../firebase/config';
-  import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+  import { collection, addDoc } from "firebase/firestore";
   import { ref } from 'vue';
   
   const location = ref({
@@ -68,9 +68,7 @@
     try {
   // Add a new document with a generated id.
   const docRef = await addDoc(collection(projectFirestore, "locations"), location.value);
-  // const updateTimestamp = await updateDoc(docRef, {
-  //     timestamp: serverTimestamp()
-  //   })
+
   console.log("Document written with ID: ", docRef.id);
       // Add the location data to Firestore
       // const collectionRef = projectFirestore.collection('locations');
