@@ -71,9 +71,7 @@
 
   console.log("Document written with ID: ", docRef.id);
       // Add the location data to Firestore
-      // const collectionRef = projectFirestore.collection('locations');
-      // await collectionRef.add(location);
-  
+
       // Reset the form or perform any other necessary actions
       location.value = {
         placeName: '',
