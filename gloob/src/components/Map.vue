@@ -18,9 +18,9 @@
                 <div>
                   <label for="categoryList">Select Categories:</label>
                 </div>
-
                 <input type="text" v-model="placeOpeningHours" placeholder="Opening Hours" />
               </div>
+              <OpeningHours/>
               <router-link to="/next">
                 <button class="ui button">Go</button>
               </router-link>
@@ -35,8 +35,13 @@
   
   <script>
   import axios from "axios";
+  import OpeningHours from "./OpeningHours.vue";
   
   export default {
+    components:{
+      OpeningHours,
+    },
+
     data() {
       return {
         error: "",
@@ -44,6 +49,7 @@
         address: "",
         placeCategory: [],
         placeName: '',
+
         placeOpeningHours: '',
 
         allCategories: {
@@ -92,6 +98,7 @@
             // Opening hours are a bit more complex as they are an object
             if (place.opening_hours?.weekday_text) {
               this.placeOpeningHours = place.opening_hours
+              // .weekday_text
               console.log(this.placeOpeningHours)
             }
 
@@ -150,6 +157,8 @@
 
       locatorButtonPressed() {
         this.spinner = true;
+        this.placeName = '';
+        this.placeOpeningHours = '';
   
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
@@ -183,7 +192,8 @@
             "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
               lat +
               "," +
-              long
+              long +
+              "&key=AIzaSyC86wNEin5X8Bjw46DglKKCOf3E-ju0CTY"
           )
           .then((response) => {
             if (response.data.error_message) {
