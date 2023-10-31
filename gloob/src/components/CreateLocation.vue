@@ -63,7 +63,7 @@
     safety: '',
     openingHours: '',
   });
-  
+
   async function addLocation() {
     try {
   // Add a new document with a generated id.
