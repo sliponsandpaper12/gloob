@@ -63,10 +63,6 @@
     safety: '',
     openingHours: '',
   });
-  
-  async function findLocation(){
-    
-  }
 
   async function addLocation() {
     try {
